@@ -6,7 +6,7 @@
 #   - content (String)
 
 #It should update the index to include
-#all of the word occurences found in the
+#all of the word occurrences found in the
 #page content by adding the url to the
 #word's associated url list.
 
@@ -37,6 +37,13 @@ def split_string(source,splitlist):
                 output[-1] = output[-1] + char
     return output
 
+#Adding the function Look-up
+
+def lookup(index,keyword):
+    for entry in index:
+         if entry[0] == keyword:   
+            return entry[1]
+    return    
 
 def add_page_to_index(index,url,content):
     words = split_string(content," ,!-")
@@ -45,3 +52,4 @@ def add_page_to_index(index,url,content):
     
 
 add_page_to_index(index,'fake.text',"This is a test")
+print lookup(index,"test")
