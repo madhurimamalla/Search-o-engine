@@ -23,8 +23,23 @@ def add_to_index(index,keyword,url):
             return
     index.append([keyword,[url]])
 
+def split_string(source,splitlist):
+    output=[]
+    atsplit = True
+    for char in source:
+        if char in splitlist:
+            atsplit = True
+        else:
+            if atsplit:
+                output.append(char)
+                atsplit = False
+            else:
+                output[-1] = output[-1] + char
+    return
+
+
 def add_page_to_index(index,url,content):
-    words = content.split()
+    words = content.split_string()
     for entry in words:
         add_to_index(index,entry,url)
     
