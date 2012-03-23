@@ -56,6 +56,13 @@ def add_page_to_index(index,url,content):
     words = content.split()
     for entry in words:
         add_to_index(index,entry,url)
+
+def lookup(index,keyword):
+    for entry in index:
+         if entry[0] == keyword:   
+            return entry[1]
+    return
+
     
 def union(a,b):
     for e in b:
@@ -78,4 +85,7 @@ def crawl_web(seed):
             crawled.append(page)
     return index
     
-print crawl_web("http://xkcd.com/353")
+index = crawl_web("http://xkcd.com/353")
+print index
+print lookup(index,'happened')
+
