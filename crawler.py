@@ -35,11 +35,11 @@ def split_string(source,splitlist):
                 atsplit = False
             else:
                 output[-1] = output[-1] + char
-    return
+    return output
 
 
 def add_page_to_index(index,url,content):
-    words = content.split_string()
+    words = split_string(content," ,!-")
     for entry in words:
         add_to_index(index,entry,url)
     
